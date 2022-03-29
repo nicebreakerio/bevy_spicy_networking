@@ -6,7 +6,7 @@ use std::net::SocketAddr;
 mod shared;
 
 fn main() {
-    let mut app = App::build();
+    let mut app = App::new();
 
     app.add_plugins(DefaultPlugins);
 

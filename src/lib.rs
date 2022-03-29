@@ -38,7 +38,7 @@ impl ServerMessage for WorldUpdate {
 }
 
 fn main() {
-     let mut app = App::build();
+     let mut app = App::new();
      app.add_plugin(ClientPlugin);
      // We are receiving this from the server, so we need to listen for it
      app.listen_for_server_message::<WorldUpdate>();
@@ -82,7 +82,7 @@ impl ClientMessage for UserInput {
 }
 
 fn main() {
-     let mut app = App::build();
+     let mut app = App::new();
      app.add_plugin(ServerPlugin);
      // We are receiving this from a client, so we need to listen for it!
      app.listen_for_client_message::<UserInput>();
