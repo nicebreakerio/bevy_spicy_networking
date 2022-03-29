@@ -284,11 +284,7 @@ fn handle_chat_area(
     text.sections = sections;
 }
 
-fn setup_ui(
-    mut commands: Commands,
-    asset_server: Res<AssetServer>,
-    mut materials: ResMut<Assets<ColorMaterial>>,
-) {
+fn setup_ui(mut commands: Commands, asset_server: Res<AssetServer>) {
     commands.spawn_bundle(UiCameraBundle::default());
 
     commands.spawn_bundle((GameChatMessages::new(),));
@@ -301,7 +297,7 @@ fn setup_ui(
                 flex_direction: FlexDirection::ColumnReverse,
                 ..Default::default()
             },
-            material: materials.add(Color::NONE.into()),
+            color: Color::NONE.into(),
             ..Default::default()
         })
         .with_children(|parent| {
@@ -326,7 +322,7 @@ fn setup_ui(
                         size: Size::new(Val::Percent(100.), Val::Percent(10.)),
                         ..Default::default()
                     },
-                    material: materials.add(Color::GRAY.into()),
+                    color: Color::GRAY.into(),
                     ..Default::default()
                 })
                 .with_children(|parent_button_bar| {
