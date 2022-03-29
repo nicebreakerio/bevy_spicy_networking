@@ -49,6 +49,7 @@ fn setup_networking(mut net: ResMut<NetworkServer>) {
     info!("Started listening for new connections!");
 }
 
+#[derive(Component)]
 struct Player(ConnectionId);
 
 fn handle_connection_events(
